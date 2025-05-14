@@ -16,14 +16,18 @@ const allowedOrigins = ['http://localhost:5173']
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({origin: 'https://auth-mern-frontend-y0ev.onrender.com', credentials: true}));
-/*app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    allowedHeaders: "Content-Type, Authorization"
+const allowedOrigins = ['http://localhost:5173', 'https://auth-mern-frontend-y0ev.onrender.com'];
+app.use(cors({
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {  // Allow requests from local and Render domains
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'), false);
+    }
+  },
+  credentials: true
 }));
-*/
+
 
 //API endpoints
 app.get("/",(req,res)=>res.send("API working"));
