@@ -2,8 +2,9 @@ import express from 'express';
 import { register, login, logout, sendVerifyOtp, verifyEmail, isAuthenticated, sendResetOtp, resetPassword } from '../controllers/authController.js';
 import userAuth from '../middleware/userAuth.js';
 
+const authRouter = express.Router(); // Create a router instance
 
-app.use("/api/auth", authRouter);
+// Define your routes
 authRouter.post("/register", register);
 authRouter.post("/login", login);
 authRouter.post("/logout", logout);
@@ -13,4 +14,4 @@ authRouter.get("/is-auth", userAuth, isAuthenticated);
 authRouter.post("/send-reset-otp", sendResetOtp);
 authRouter.post("/reset-password", resetPassword);
 
-export default authRouter;
+export default authRouter; // Export the router to use in server.js
