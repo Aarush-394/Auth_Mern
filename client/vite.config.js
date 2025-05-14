@@ -2,7 +2,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     proxy: {
-      '/api': 'https://auth-mern-backend-9pgx.onrender.com',  // Adjust the backend URL accordingly
+      '/api': 'https://auth-mern-backend-9pgx.onrender.com'
     },
   },
 });
