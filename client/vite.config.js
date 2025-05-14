@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';  // Import react plugin from @vitejs/p
  // Ensure tailwindcss is imported
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],  // Use the react plugin
+  plugins: [react()],  // Use the react plugin
   server: {
     proxy: {
       '/api': 'https://auth-mern-backend-9pgx.onrender.com',
