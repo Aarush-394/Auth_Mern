@@ -2,11 +2,6 @@ import express from 'express';
 import { register, login, logout, sendVerifyOtp, verifyEmail, isAuthenticated, sendResetOtp, resetPassword } from '../controllers/authController.js';
 import userAuth from '../middleware/userAuth.js';
 
-const authRouter= express.Router();
-import { Router } from 'express';
-const authRouter = Router();
-
-authRouter.post("/login", login);
 
 app.use("/api/auth", authRouter);
 authRouter.post("/register", register);
