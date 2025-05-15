@@ -17,13 +17,7 @@ app.use(express.json());
 app.use(cookieParser());
 const allowedOrigins = ['http://localhost:5173', 'https://auth-mern-frontend-mwdt.onrender.com'];
 app.use(cors({
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) {  // Allow requests from local and Render domains
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'), false);
-    }
-  },
+  origin: allowedOrigins,
   credentials: true
 }));
 app.use("/api/auth", authRouter);
