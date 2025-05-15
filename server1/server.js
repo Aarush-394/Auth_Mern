@@ -15,19 +15,10 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Allow both localhost (dev) and frontend (Render) in production
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://auth-mern-frontend-mwdt.onrender.com"
-];
+
 
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
+  origin: ["https://auth-mern-frontend-mwdt.onrender.com"],
   credentials: true
 }));
 
