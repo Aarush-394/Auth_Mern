@@ -13,6 +13,7 @@ const Login = () => {
     const [password, setPassword] = useState('')
 
     const {backEndUrl, setIsLoggedin, getUserData} = useContext(AppContext)
+    backEndUrl='https://auth-mern-backend-9pgx.onrender.com/';
     const onSubmitHandler = async (e)=>{
         try{
             e.preventDefault();
