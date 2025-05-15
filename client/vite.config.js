@@ -1,12 +1,12 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 
-// Vite will auto-detect the PostCSS config, no need to explicitly reference it here
+// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   server: {
-    proxy: {
-      '/api': 'https://auth-mern-backend-9pgx.onrender.com',  // Adjust the backend URL accordingly
-    },
-  },
-});
+    host: '0.0.0.0',                 // ← important for Render
+    port: import.meta.env.VITE_BACKEND_URL || 5173,  // ← use PORT from environment
+  }
+})
