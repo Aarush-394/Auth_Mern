@@ -5,7 +5,7 @@ import axios from "axios";
 export const AppContext = createContext();
 
 export const AppContextProvider = (props) => {
-    const backEndUrl = import.meta.env.VITE_BACKEND_URL;
+    const backEndUrl = 'https://auth-mern-backend-9pgx.onrender.com';
 
     // Log backend URL to verify in deployed version (remove after testing)
     console.log("Using backend URL:", backEndUrl);
