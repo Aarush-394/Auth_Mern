@@ -19,7 +19,7 @@ const Login = () => {
 
             axios.defaults.withCredentials = true;
             if(state === 'Sign Up'){
-              const {data}=  await axios.post('https://auth-mern-backend-9pgx.onrender.com/'+ '/api/auth/register', {name, email, password})
+              const {data}=  await axios.post(backEndUrl+ '/api/auth/register', {name, email, password})
 
               if(data.success){
                 setIsLoggedin(true)
@@ -31,7 +31,7 @@ const Login = () => {
               }
             }
             else{
-               const {data}=  await axios.post('https://auth-mern-backend-9pgx.onrender.com/'+ '/api/auth/login', {email, password})
+               const {data}=  await axios.post(backEndUrl+ '/api/auth/login', {email, password})
 
               if(data.success){
                 setIsLoggedin(true)
