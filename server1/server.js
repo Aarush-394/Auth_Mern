@@ -15,7 +15,7 @@ connectDB();
 
 app.use(express.json());
 app.use(cookieParser());
-const allowedOrigins = ['http://localhost:5173', 'https://auth-mern-frontend-y0ev.onrender.com'];
+const allowedOrigins = ['http://localhost:5173', 'https://auth-mern-frontend-mwdt.onrender.com'];
 app.use(cors({
   origin: (origin, callback) => {
     if (allowedOrigins.includes(origin) || !origin) {  // Allow requests from local and Render domains
